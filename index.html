@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yönlendiriliyor...</title>
+  <script>
+    function getRedirectLink() {
+      const params = new URLSearchParams(window.location.search);
+      const link = params.get("link");
+      if (link && link.startsWith("https://www.youtube.com/")) {
+        window.location.href = link;
+      } else {
+        document.getElementById("message").innerText = "Geçerli bir YouTube bağlantısı bulunamadı.";
+      }
+    }
+    window.onload = getRedirectLink;
+  </script>
+</head>
+<body>
+  <p id="message">Yönlendiriliyorsunuz... Lütfen bekleyin.</p>
+</body>
+</html>
